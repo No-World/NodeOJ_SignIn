@@ -24,6 +24,9 @@ def signin(cookies):
     headers = {'User-Agent': 'No_World签到姬'.encode('utf-8')}
     try:
         response = requests.get(url, cookies=cookies, headers=headers)
+        response.raise_for_status()
+        if response.headers['Content-Type'].startswith('text/html'):
+            return 'NodeOJ：登陆失败，请检查cookies'
         response_text = response.text
         data = json.loads(response_text)
         status = data['status']
@@ -33,6 +36,7 @@ def signin(cookies):
         # if 'time' in data:
         #   dt = datetime.fromisoformat(data['time'][:-1])
         #   text += '签到时间:' + dt.strftime('%Y-%m-%d %H:%M:%S')
+
     except:
         return 'NodeOJ请求失败！'
 
