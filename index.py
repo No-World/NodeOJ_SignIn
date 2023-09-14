@@ -9,10 +9,10 @@ import urllib.request
 
 
 def main_handler(event, context):
-    key = os.environ.get('KEY')
-    # key = '你的server酱SendKey'
-    cookies = {'ssid': os.environ.get('COOKIES')}
-    # cookies = {'ssid': '你的NodeOJ的cookies'}
+    # key = os.environ.get('KEY')
+    key = 'SCT223073TVTMq46iLXRZ8C4QDZu7uqrou'
+    # cookies = {'ssid': os.environ.get('COOKIES')}
+    cookies = {'ssid': 's%3AZh-JZFuUqbt9wjY6ODpLCyF1sXcReGVp.vDAUxb4gexWgE7KmiaacB45fzJHE8xBF33jTflXibj4'}
 
     # 将结果推送到server酱
     ret = sc_send('签到结果', signin(cookies), key)
@@ -21,18 +21,20 @@ def main_handler(event, context):
 
 def signin(cookies):
     url = 'https://nodeoj.com/qiandao/ouhuang'
-
     headers = {'User-Agent': 'No_World签到姬'.encode('utf-8')}
-    response = requests.get(url, cookies=cookies, headers=headers)
-    response_text = response.text
-    data = json.loads(response_text)
-    status = data['status']
-    text = status.replace('<br/>', '\n\n')
+    try:
+        response = requests.get(url, cookies=cookies, headers=headers)
+        response_text = response.text
+        data = json.loads(response_text)
+        status = data['status']
+        text = status.replace('<br/>', '\n\n')
 
-    # 获取的时间戳并非签到时间
-    # if 'time' in data:
-    #   dt = datetime.fromisoformat(data['time'][:-1])
-    #   text += '签到时间:' + dt.strftime('%Y-%m-
+        # 获取的时间戳并非签到时间
+        # if 'time' in data:
+        #   dt = datetime.fromisoformat(data['time'][:-1])
+        #   text += '签到时间:' + dt.strftime('%Y-%m-%d %H:%M:%S')
+    except:
+        return 'NodeOJ请求失败！'
 
     return text
 
