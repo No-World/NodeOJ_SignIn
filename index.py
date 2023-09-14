@@ -46,9 +46,10 @@ def main_handler(event, context):
   status = data['status']
   text = status.replace('<br/>','\n\n')
 
-  if 'time' in data:
-    dt = datetime.fromisoformat(data['time'][:-1])
-    text += '签到时间:' + dt.strftime('%Y-%m-%d %H:%M:%S')
+  # 获取的时间戳并非签到时间
+  # if 'time' in data:
+  #   dt = datetime.fromisoformat(data['time'][:-1])
+  #   text += '签到时间:' + dt.strftime('%Y-%m-%d %H:%M:%S')
 
   key = os.environ.get('KEY')
   # key = '你的server酱sendkey'
