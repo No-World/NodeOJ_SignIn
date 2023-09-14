@@ -7,6 +7,7 @@ import ast
 import urllib.parse
 import urllib.request
 
+
 def main_handler(event, context):
     key = os.environ.get('KEY')
     # key = '你的server酱sendkey'
@@ -15,6 +16,7 @@ def main_handler(event, context):
 
     ret = sc_send('签到结果', signin(cookies), key)
     print(ret)
+
 
 def signin(cookies):
     url = 'https://nodeoj.com/qiandao/ouhuang'
@@ -32,6 +34,7 @@ def signin(cookies):
     #   text += '签到时间:' + dt.strftime('%Y-%m-
 
     return text
+
 
 def sc_send(title, content, key):
     postdata = urllib.parse.urlencode({'text': title, 'desp': content}).encode('utf-8')
