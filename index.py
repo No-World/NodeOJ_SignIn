@@ -18,8 +18,8 @@ def sc_send(title, content, key):
 def main_handler(event, context):
   url = 'https://nodeoj.com/qiandao/ouhuang'
 
-  # cookies = {'ssid': '你的nodeoj的cookies'}
   cookies = { 'ssid': os.environ.get('COOKIES') }
+  # cookies = {'ssid': '你的nodeoj的cookies'}
 
   headers = {
     'Accept': 'application/json, text/javascript, */*; q=0.01',
