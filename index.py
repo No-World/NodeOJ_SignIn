@@ -9,10 +9,10 @@ import urllib.request
 
 
 def main_handler(event, context):
-    # key = os.environ.get('KEY')
-    key = 'SCT223073TVTMq46iLXRZ8C4QDZu7uqrou'
-    # cookies = {'ssid': os.environ.get('COOKIES')}
-    cookies = {'ssid': 's%3AZh-JZFuUqbt9wjY6ODpLCyF1sXcReGVp.vDAUxb4gexWgE7KmiaacB45fzJHE8xBF33jTflXibj4'}
+    key = os.environ.get('KEY')
+    # key = '你的server酱SendKey'
+    cookies = {'ssid': os.environ.get('COOKIES')}
+    # cookies = {'ssid': '你的NodeOJ的cookies'}
 
     # 将结果推送到server酱
     ret = sc_send('签到结果', signin(cookies), key)
