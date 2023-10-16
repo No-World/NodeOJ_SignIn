@@ -8,7 +8,7 @@ import urllib.parse
 import urllib.request
 
 
-def main_handler(event, context):
+def handler(event, context):
     key = os.environ.get('KEY')
     # key = '你的server酱SendKey'
     cookies = {'ssid': os.environ.get('COOKIES')}
@@ -51,6 +51,6 @@ def sc_send(title, content, key):
         result = response.read().decode('utf-8')
     return result
 
-
+# 调试用程序入口
 if __name__ == '__main__':
-    main_handler(None, None)
+    handler(None, None)
