@@ -2,7 +2,7 @@
 云函数配置NodeOJ自动签到的主体程序
 ## 配置方式
 ### 华为云
-1.注册并登录华为云(https://www.huaweicloud.com/)
+1.注册并登录华为云( https://www.huaweicloud.com/ )
 
 2.搜索函数工作流并进入函数工作流工作台 
 
@@ -14,7 +14,7 @@
 
 6.点击两个设置中上方的设置，点击环境变量，新建键“KEY”和“COOKIES”(键值见下文)
 
-7.进入Server酱官网(https://sct.ftqq.com/)，登入，复制SendKey作为上文“KEY”的值
+7.进入Server酱官网( https://sct.ftqq.com/ )，登入，复制SendKey作为上文“KEY”的值
 
 8.获取NodeOJ官网Cookies作为上文“COOKIES”的值
 
