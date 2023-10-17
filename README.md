@@ -1,5 +1,7 @@
 # NodeOJ_SignIn
 云函数配置NodeOJ自动签到的主体程序
+## 适用人群
+不需要经常在不同电脑上登录的人
 ## 配置方式
 ### 华为云
 1.注册并登录华为云( https://www.huaweicloud.com/ )
@@ -8,7 +10,7 @@
 
 3.点击函数—函数列表，点击左上角创建函数
 
-4.函数名自拟，“运行时”下拉框选Python 3.9即可
+4.函数名自拟，“运行时”下拉框选Python 3.9，3.10都行
 
 5.将项目中的index.py的内容复制进云函数中的index.py(或者使用右侧上传自zip文件，文件于右侧Releases)
 
@@ -16,7 +18,7 @@
 
 7.进入Server酱官网( https://sct.ftqq.com/ )，登入，复制SendKey作为上文“KEY”的值
 
-8.获取NodeOJ官网Cookies作为上文“COOKIES”的值
+8.获取NodeOJ官网Cookies作为上文“COOKIES”的值(如果你不希望每过一周就要重新登录并修改cookie的话，就顺便更改浏览器cookie的有效时间)
 
 9.回到代码页，点击部署，部署完成后点击测试，模板默认即可，此时你的Server酱的微信号理应有设备收信消息，没有请附上执行结果提问
 
