@@ -14,9 +14,20 @@ def handler(event, context):
     cookies = {'ssid': os.environ.get('COOKIES')}
     # cookies = {'ssid': '你的NodeOJ的cookies'}
 
-    # 将结果推送到server酱
-    ret = sc_send('签到结果', signin(cookies), key)
-    print(ret)
+    if cookies['ssid'] is None:
+        print('未配置NodeOJ的cookies, 签到失败, 请查看README文档配置后重试')
+        return
+
+    else:
+        info = signin(cookies)
+        print('签到结果:\n' + info)
+
+        if key is None:
+            print('未配置server酱的SendKey, 如有需要请查看README文档配置后重试')
+        else:
+            # 将结果推送到server酱
+            ret = sc_send('签到结果', info, key)
+            print(ret)
 
 
 def signin(cookies):
@@ -50,6 +61,7 @@ def sc_send(title, content, key):
     with urllib.request.urlopen(req) as response:
         result = response.read().decode('utf-8')
     return result
+
 
 # 调试用程序入口
 if __name__ == '__main__':
